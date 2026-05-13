@@ -653,6 +653,75 @@ p { color: var(--ink-soft); }
 }
 
 /* =========================================================
+   BRIOCHES RELLENOS
+   ========================================================= */
+.brioches {
+  padding: var(--section-y) var(--gutter);
+  max-width: var(--max);
+  margin: 0 auto;
+  position: relative;
+}
+.brioches__head {
+  max-width: 760px;
+  margin: 0 auto clamp(48px, 6vw, 80px);
+  text-align: center;
+}
+.brioches__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.brioches__cta {
+  margin-top: clamp(40px, 6vw, 64px);
+  text-align: center;
+}
+
+.card--placeholder { cursor: default; }
+.card--placeholder:hover .card__img { transform: none; }
+.card__img--placeholder {
+  background:
+    radial-gradient(circle at 30% 30%, rgba(176, 141, 87, .08), transparent 60%),
+    linear-gradient(135deg, var(--cream-2) 0%, #ECE3D2 100%);
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.card__img--placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px dashed rgba(176, 141, 87, .35);
+  border-radius: 14px;
+  pointer-events: none;
+}
+.placeholder__num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(64px, 8vw, 96px);
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+  opacity: .85;
+}
+.placeholder__label {
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .7;
+}
+
+@media (max-width: 768px) {
+  .brioches__grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
    CATALOG
    ========================================================= */
 .catalog {
