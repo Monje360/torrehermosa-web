@@ -1135,22 +1135,41 @@ p { color: var(--ink-soft); }
   color: rgba(250, 246, 240, .75);
 }
 .footer__contact p { color: rgba(250, 246, 240, .65); font-size: 14px; line-height: 1.7; margin-bottom: 18px; }
-.footer__wa {
+.footer__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.footer__wa,
+.footer__call {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #25D366;
-  color: #ffffff;
   padding: 12px 22px;
   border-radius: 999px;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.04em;
-  transition: background .25s var(--ease), transform .25s var(--ease);
+  transition: background .25s var(--ease), transform .25s var(--ease), color .25s var(--ease);
+}
+.footer__wa {
+  background: #25D366;
+  color: #ffffff;
 }
 .footer__wa:hover {
   background: #1ebd5a;
   color: #ffffff;
+  transform: translateY(-2px);
+}
+.footer__call {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid rgba(250, 246, 240, .35);
+}
+.footer__call:hover {
+  background: var(--cream);
+  color: var(--ink);
+  border-color: var(--cream);
   transform: translateY(-2px);
 }
 
