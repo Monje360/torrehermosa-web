@@ -24,6 +24,11 @@
   --gutter: clamp(20px, 4vw, 64px);
   --section-y: clamp(80px, 12vw, 160px);
 
+  /* Shape */
+  --radius:    20px;
+  --radius-sm: 12px;
+  --radius-lg: 28px;
+
   /* Motion */
   --ease: cubic-bezier(.2, .7, .15, 1);
 }
@@ -385,6 +390,7 @@ p { color: var(--ink-soft); }
   aspect-ratio: 4 / 5;
   background: var(--cream-2);
   overflow: hidden;
+  border-radius: var(--radius);
 }
 .heritage__photo {
   position: absolute; inset: 0;
@@ -490,6 +496,7 @@ p { color: var(--ink-soft); }
   border: 1px solid var(--line-soft);
   overflow: hidden;
   transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+  border-radius: var(--radius);
 }
 .suspiro:hover {
   transform: translateY(-6px);
@@ -553,8 +560,7 @@ p { color: var(--ink-soft); }
 }
 .suspiro__badge--medal svg { color: var(--gold); }
 
-.suspiro__body { padding: 24px 24px 32px; flex: 1; display: flex; flex-direction: column; }
-.suspiro__body p { font-size: 15px; line-height: 1.55; margin: 10px 0 16px; flex: 1; }
+.suspiro__body { padding: 22px 24px 26px; flex: 1; display: flex; flex-direction: column; gap: 14px; }
 .suspiro__tag {
   margin-top: auto;
   font-size: 11px;
@@ -581,6 +587,7 @@ p { color: var(--ink-soft); }
   z-index: 1;
   opacity: .35;
   transform: translate(6px, 6px);
+  border-radius: var(--radius);
 }
 .suspiro--featured:hover {
   transform: translateY(-6px);
@@ -591,10 +598,6 @@ p { color: var(--ink-soft); }
 }
 .suspiro--featured .h3 {
   font-size: clamp(26px, 2.6vw, 34px);
-}
-.suspiro--featured .suspiro__body p {
-  font-size: 16px;
-  color: var(--ink);
 }
 
 .signature__intro .lede strong {
@@ -638,8 +641,9 @@ p { color: var(--ink-soft); }
 }
 .card {
   background: var(--cream);
-  border-bottom: 1px solid var(--line-soft);
   cursor: pointer;
+  overflow: hidden;
+  border-radius: var(--radius);
 }
 .card__img {
   aspect-ratio: 3 / 4;
@@ -647,9 +651,11 @@ p { color: var(--ink-soft); }
   background-size: cover;
   background-position: center;
   transition: transform .8s var(--ease);
+  border-radius: var(--radius);
+  overflow: hidden;
 }
 .card:hover .card__img { transform: scale(1.04); }
-.card__body { padding: 22px 4px 8px; }
+.card__body { padding: 22px 18px 22px; }
 .card__body p { font-size: 14px; line-height: 1.5; margin-top: 8px; color: var(--muted); }
 
 /* =========================================================
@@ -725,6 +731,7 @@ p { color: var(--ink-soft); }
   overflow: hidden;
   order: -1;
   position: relative;
+  border-radius: var(--radius);
 }
 .obrador__photo {
   width: 100%; height: 100%;
@@ -829,6 +836,7 @@ p { color: var(--ink-soft); }
   position: relative;
   aspect-ratio: 4 / 5;
   overflow: hidden;
+  border-radius: var(--radius);
 }
 .delivery__photo {
   position: absolute; inset: 0;
@@ -945,6 +953,7 @@ p { color: var(--ink-soft); }
   overflow: hidden;
   position: sticky;
   top: 100px;
+  border-radius: var(--radius);
 }
 .visit__map iframe { width: 100%; height: 100%; border: 0; filter: grayscale(.4) contrast(.95); }
 
