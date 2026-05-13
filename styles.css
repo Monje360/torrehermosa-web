@@ -1163,13 +1163,13 @@ p { color: var(--ink-soft); }
 }
 .footer__call {
   background: transparent;
-  color: var(--cream);
-  border: 1px solid rgba(250, 246, 240, .35);
+  color: var(--gold-soft);
+  border: 1px solid var(--gold);
 }
 .footer__call:hover {
-  background: var(--cream);
+  background: var(--gold);
   color: var(--ink);
-  border-color: var(--cream);
+  border-color: var(--gold);
   transform: translateY(-2px);
 }
 
