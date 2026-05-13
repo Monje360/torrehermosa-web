@@ -5,6 +5,15 @@
 (() => {
   'use strict';
 
+  // -- Always land at the top on initial load / refresh (no anchor jump) --
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+  window.scrollTo(0, 0);
+
   const nav = document.getElementById('nav');
   const hero = document.querySelector('.hero');
   const burger = document.querySelector('.nav__burger');
