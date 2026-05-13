@@ -578,17 +578,6 @@ p { color: var(--ink-soft); }
   position: relative;
   box-shadow: 0 30px 70px -25px rgba(176, 141, 87, .4);
 }
-.suspiro--featured::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border: 1px solid var(--gold);
-  pointer-events: none;
-  z-index: 1;
-  opacity: .35;
-  transform: translate(6px, 6px);
-  border-radius: var(--radius);
-}
 .suspiro--featured:hover {
   transform: translateY(-6px);
 }
