@@ -502,7 +502,108 @@ html, body {
 }
 
 /* ============================================================
-   SLIDE 6 — CIERRE
+   SLIDE — DISTRIBUCIÓN
+   ============================================================ */
+.distrib-slide {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--ink);
+  color: var(--cream);
+}
+.distrib-slide__panel {
+  padding: 96px 96px 96px 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.distrib-slide__panel .eyebrow { color: var(--gold-soft); }
+.distrib-slide__title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 96px;
+  line-height: .98;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  margin-bottom: 32px;
+}
+.distrib-slide__title em { font-style: italic; color: var(--gold); display: block; }
+.distrib-slide__lede {
+  font-family: var(--sans);
+  font-size: 20px;
+  line-height: 1.55;
+  color: rgba(250, 246, 240, .75);
+  max-width: 38ch;
+  margin-bottom: 56px;
+}
+.distrib-slide__list {
+  list-style: none;
+  display: grid;
+  gap: 32px;
+}
+.distrib-slide__item {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 28px;
+  align-items: baseline;
+  padding-top: 24px;
+  border-top: 1px solid rgba(176, 141, 87, .25);
+}
+.distrib-slide__num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 32px;
+  color: var(--gold);
+  line-height: 1;
+}
+.distrib-slide__body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.distrib-slide__name {
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1.2;
+  color: var(--cream);
+  font-weight: 400;
+}
+.distrib-slide__name em { font-style: italic; color: var(--gold-soft); }
+.distrib-slide__hint {
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: rgba(250, 246, 240, .65);
+  line-height: 1.5;
+  max-width: 36ch;
+}
+.distrib-slide__media {
+  background-image: url('../img/tarta-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.distrib-slide__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(26,23,20,.4) 0%, transparent 30%);
+}
+.distrib-slide__quote {
+  position: absolute;
+  left: 64px;
+  bottom: 80px;
+  right: 64px;
+  z-index: 2;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.4;
+  color: rgba(250, 246, 240, .92);
+  max-width: 22ch;
+}
+
+/* ============================================================
+   SLIDE 7 — CIERRE
    ============================================================ */
 .outro {
   display: grid;
@@ -726,7 +827,54 @@ html, body {
     </div>
   </section>
 
-  <!-- SLIDE 6 — CIERRE -->
+  <!-- SLIDE 6 — DISTRIBUCIÓN -->
+  <section class="slide distrib-slide">
+    <div class="distrib-slide__panel">
+      <span class="eyebrow">— Distribución —</span>
+      <h2 class="distrib-slide__title">Por qué<em>el Suspiro.</em></h2>
+      <p class="distrib-slide__lede">
+        Una marca con historia, un producto reconocido y una imagen
+        cuidada. Cuatro razones para sumarlo a tu vitrina.
+      </p>
+      <ul class="distrib-slide__list">
+        <li class="distrib-slide__item">
+          <span class="distrib-slide__num">01</span>
+          <div class="distrib-slide__body">
+            <span class="distrib-slide__name">Marca con <em>historia.</em></span>
+            <span class="distrib-slide__hint">60+ años de oficio y medalla de oro a la mejor tarta de Madrid.</span>
+          </div>
+        </li>
+        <li class="distrib-slide__item">
+          <span class="distrib-slide__num">02</span>
+          <div class="distrib-slide__body">
+            <span class="distrib-slide__name">Producto <em>recién hecho.</em></span>
+            <span class="distrib-slide__hint">Elaboración diaria, en tandas pequeñas. Sin conservantes ni atajos.</span>
+          </div>
+        </li>
+        <li class="distrib-slide__item">
+          <span class="distrib-slide__num">03</span>
+          <div class="distrib-slide__body">
+            <span class="distrib-slide__name">Packaging <em>premium.</em></span>
+            <span class="distrib-slide__hint">Caja branded cuidada al detalle. Cuando lo expones, vende.</span>
+          </div>
+        </li>
+        <li class="distrib-slide__item">
+          <span class="distrib-slide__num">04</span>
+          <div class="distrib-slide__body">
+            <span class="distrib-slide__name">Sin inversión <em>en obrador.</em></span>
+            <span class="distrib-slide__hint">Vendes producto premium sin asumir el coste de elaboración propia.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="distrib-slide__media">
+      <p class="distrib-slide__quote">
+        “Tu vitrina, en buenas manos.”
+      </p>
+    </div>
+  </section>
+
+  <!-- SLIDE 7 — CIERRE -->
   <section class="slide slide--ink outro">
     <div class="outro__bg"></div>
     <div class="outro__veil"></div>
