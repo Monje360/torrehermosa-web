@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Torrehermosa · Campaña Social Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  body { background: var(--cream); padding: 64px 32px; }
+  .index { max-width: 1080px; margin: 0 auto; }
+  .index__head { margin-bottom: 64px; }
+  .index__eyebrow {
+    display: block;
+    font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+  }
+  .index__title { font-family: var(--serif); font-weight: 400; font-size: 72px; line-height: 1; letter-spacing: -0.01em; }
+  .index__title em { font-style: italic; color: var(--gold); }
+  .index__intro { font-size: 18px; line-height: 1.6; max-width: 60ch; margin-top: 24px; color: var(--ink-soft); }
+  .index__group { margin-bottom: 56px; }
+  .index__group-title {
+    font-family: var(--sans);
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+    padding-bottom: 12px; border-bottom: 1px solid var(--line);
+  }
+  .index__list {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .index__card {
+    display: block;
+    padding: 28px;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--ink);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .index__card:hover { transform: translateY(-3px); box-shadow: 0 20px 40px -20px rgba(0,0,0,.18); }
+  .index__card-num {
+    font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--gold);
+  }
+  .index__card-title { font-family: var(--serif); font-size: 28px; margin-top: 4px; line-height: 1.15; }
+  .index__card-sub { font-size: 13px; color: var(--muted); margin-top: 8px; letter-spacing: 0.04em; }
+  .index__how {
+    margin-top: 64px; padding: 40px; background: var(--ink); color: var(--cream); border-radius: 20px;
+  }
+  .index__how h2 { font-family: var(--serif); font-size: 32px; margin-bottom: 16px; }
+  .index__how p { color: rgba(250,246,240,.75); line-height: 1.6; font-size: 15px; max-width: 60ch; margin-bottom: 10px; }
+  .index__how code { background: rgba(255,255,255,.08); padding: 2px 8px; border-radius: 4px; color: var(--gold-soft); font-size: 13px; }
+</style>
+</head>
+<body>
+<main class="index">
+  <header class="index__head">
+    <span class="index__eyebrow">— Campaña Social Media —</span>
+    <h1 class="index__title">Pastelería <em>Torrehermosa</em></h1>
+    <p class="index__intro">
+      12 carruseles para Instagram (1080×1350 px) con la misma identidad visual de
+      la web. Cada uno se puede descargar slide a slide o entero en PNG.
+    </p>
+  </header>
+
+  <section class="index__group">
+    <h2 class="index__group-title">Marca · 3 carruseles</h2>
+    <div class="index__list">
+      <a class="index__card" href="brand-1-historia.html">
+        <span class="index__card-num">01</span>
+        <div class="index__card-title">Más de 60 años de historia</div>
+        <div class="index__card-sub">1962 · 3 generaciones · oficio</div>
+      </a>
+      <a class="index__card" href="brand-2-medalla.html">
+        <span class="index__card-num">02</span>
+        <div class="index__card-title">Medalla de oro de Madrid</div>
+        <div class="index__card-sub">Reconocimiento · Marrón Glacé</div>
+      </a>
+      <a class="index__card" href="brand-3-especialidades.html">
+        <span class="index__card-num">03</span>
+        <div class="index__card-title">Nuestras especialidades</div>
+        <div class="index__card-sub">El obrador · oficio · proceso</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="index__group">
+    <h2 class="index__group-title">Productos · 6 carruseles</h2>
+    <div class="index__list">
+      <a class="index__card" href="producto-1-suspiro.html">
+        <span class="index__card-num">04</span>
+        <div class="index__card-title">La Tarta Suspiro</div>
+        <div class="index__card-sub">7 sabores · producto estrella</div>
+      </a>
+      <a class="index__card" href="producto-2-brioche.html">
+        <span class="index__card-num">05</span>
+        <div class="index__card-title">Brioches rellenos</div>
+        <div class="index__card-sub">Especialidad de la casa</div>
+      </a>
+      <a class="index__card" href="producto-3-tarta-boda.html">
+        <span class="index__card-num">06</span>
+        <div class="index__card-title">Tartas de boda</div>
+        <div class="index__card-sub">Diseño personalizado</div>
+      </a>
+      <a class="index__card" href="producto-4-tarta-cumple.html">
+        <span class="index__card-num">07</span>
+        <div class="index__card-title">Tartas de cumpleaños</div>
+        <div class="index__card-sub">Para celebrar</div>
+      </a>
+      <a class="index__card" href="producto-5-catering.html">
+        <span class="index__card-num">08</span>
+        <div class="index__card-title">Catering para eventos</div>
+        <div class="index__card-sub">Reuniones premium</div>
+      </a>
+      <a class="index__card" href="producto-6-temporada.html">
+        <span class="index__card-num">09</span>
+        <div class="index__card-title">Productos de temporada</div>
+        <div class="index__card-sub">Cada época, su postre</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="index__group">
+    <h2 class="index__group-title">Distribuidores · 3 carruseles (B2B)</h2>
+    <div class="index__list">
+      <a class="index__card" href="distrib-1-oportunidad.html">
+        <span class="index__card-num">10</span>
+        <div class="index__card-title">Sé punto de venta</div>
+        <div class="index__card-sub">Oportunidad para tu negocio</div>
+      </a>
+      <a class="index__card" href="distrib-2-por-que.html">
+        <span class="index__card-num">11</span>
+        <div class="index__card-title">Por qué Torrehermosa</div>
+        <div class="index__card-sub">Argumentos de venta</div>
+      </a>
+      <a class="index__card" href="distrib-3-como-trabajar.html">
+        <span class="index__card-num">12</span>
+        <div class="index__card-title">Cómo trabajar con nosotros</div>
+        <div class="index__card-sub">Proceso y contacto</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="index__how">
+    <h2>Cómo exportar a Instagram</h2>
+    <p><strong>1.</strong> Abre cada carrusel y haz <em>hover</em> sobre cualquier slide → aparece un botón dorado arriba a la derecha <code>↓ Slide N</code>.</p>
+    <p><strong>2.</strong> Click → se descarga la slide como PNG a 1080×1350 px (exactamente el formato Instagram 4:5).</p>
+    <p><strong>3.</strong> O usa el botón <code>Descargar todas</code> dentro de cada carrusel para bajarlas todas seguidas.</p>
+    <p><strong>4.</strong> Sube las slides a Instagram como un solo post múltiple (carrusel). El orden será 01, 02, 03...</p>
+  </section>
+</main>
+</body>
+</html>
