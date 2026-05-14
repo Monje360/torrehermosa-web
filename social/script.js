@@ -2,6 +2,23 @@
 (() => {
   'use strict';
 
+  /* Export mode: ?slide=N shows only that slide at 1080x1350 for headless screenshot */
+  const params = new URLSearchParams(window.location.search);
+  const slideParam = params.get('slide');
+  if (slideParam) {
+    document.documentElement.classList.add('export-mode');
+    const idx = parseInt(slideParam, 10) - 1;
+    document.addEventListener('DOMContentLoaded', () => {
+      const slides = document.querySelectorAll('.slide');
+      slides.forEach((s, i) => {
+        s.classList.add('is-visible');
+        s.querySelectorAll('.reveal').forEach(r => r.classList.add('is-visible'));
+        if (i === idx) s.dataset.exportSlide = 'true';
+      });
+    });
+    return; // skip the interactive UI when in export mode
+  }
+
   const loadLib = () => new Promise((resolve, reject) => {
     if (window.htmlToImage) return resolve();
     const s = document.createElement('script');

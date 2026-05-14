@@ -504,6 +504,24 @@ html, body {
 .page-nav a { color: var(--gold-soft); text-decoration: none; }
 .page-nav a:hover { color: var(--cream); }
 
+/* Export mode: render single slide at 1080×1350 for headless screenshot */
+html.export-mode,
+html.export-mode body {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+html.export-mode .tools,
+html.export-mode .slide__dl-btn,
+html.export-mode .page-nav { display: none !important; }
+html.export-mode .carousel { padding: 0 !important; gap: 0; }
+html.export-mode .slide { display: none !important; }
+html.export-mode .slide[data-export-slide="true"] {
+  display: flex !important;
+  box-shadow: none;
+  border-radius: 0;
+}
+
 /* Print: each slide on its own page at exact dimensions */
 @media print {
   body { background: white; margin: 0; }
