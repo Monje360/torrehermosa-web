@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tarta Suspiro · Pastelería Torrehermosa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --cream:     #FAF6F0;
+  --cream-2:   #F2ECE2;
+  --ink:       #1A1714;
+  --ink-soft:  #4A4540;
+  --muted:     #8A8278;
+  --gold:      #B08D57;
+  --gold-soft: #D4B98E;
+  --blush:     #E8C9C5;
+  --line:      rgba(26, 23, 20, 0.12);
+  --serif: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: #2A2520;
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color: var(--ink);
+}
+
+@page {
+  size: 1920px 1080px;
+  margin: 0;
+}
+
+.deck {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  padding: 48px 24px;
+}
+
+.slide {
+  width: 1920px;
+  height: 1080px;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  page-break-inside: avoid;
+  break-after: page;
+  break-inside: avoid;
+  box-shadow: 0 30px 80px -30px rgba(0,0,0,.6);
+}
+.slide:last-child {
+  page-break-after: auto;
+  break-after: auto;
+}
+
+.slide--ink { background: var(--ink); color: var(--cream); }
+.slide--cream2 { background: var(--cream-2); }
+
+/* TOOLBAR (only on screen, hidden in PDF) */
+.tools {
+  position: fixed;
+  top: 12px; right: 12px;
+  z-index: 999;
+  background: rgba(26, 23, 20, .92);
+  backdrop-filter: blur(12px);
+  color: var(--cream);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,.1);
+}
+.tools__pdf {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--ink);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-left: 12px;
+  font-weight: 600;
+}
+
+/* TYPOGRAPHY */
+.display {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 168px;
+  line-height: .92;
+  letter-spacing: -0.02em;
+}
+.display em { font-style: italic; color: var(--gold); }
+
+.h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 112px;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+}
+.h1 em { font-style: italic; color: var(--gold); }
+
+.h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 80px;
+  line-height: 1.05;
+  letter-spacing: -0.005em;
+}
+.h2 em { font-style: italic; color: var(--gold); }
+
+.h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 1.15;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 36px;
+}
+.slide--ink .eyebrow { color: var(--gold-soft); }
+
+.lede {
+  font-family: var(--sans);
+  font-size: 22px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 50ch;
+  font-weight: 400;
+}
+.slide--ink .lede { color: rgba(250, 246, 240, .8); }
+
+.kicker {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 30px;
+  color: var(--gold);
+  line-height: 1.3;
+}
+
+.byline {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.slide--ink .byline { color: rgba(250, 246, 240, .55); }
+
+.gold-rule {
+  display: inline-block;
+  width: 64px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 0 32px;
+}
+
+.logo {
+  display: block;
+}
+.logo--ink { height: 56px; }
+.logo--cream { height: 56px; filter: brightness(0) invert(1); }
+
+/* ============================================================
+   SLIDE 1 — COVER
+   ============================================================ */
+.cover {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.cover__text {
+  padding: 96px 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cover__head { }
+.cover__center { padding-bottom: 80px; }
+.cover__center .eyebrow { color: var(--gold); margin-bottom: 28px; }
+.cover__title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 188px;
+  line-height: .9;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.cover__title em { font-style: italic; color: var(--gold); display: block; }
+.cover__subtitle {
+  margin-top: 36px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 38px;
+  color: var(--gold);
+  letter-spacing: -0.005em;
+}
+.cover__foot {
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.cover__photo {
+  background-image: url('../img/suspiro-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.cover__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(270deg, transparent 0%, transparent 70%, rgba(250,246,240,.0) 100%);
+}
+
+/* ============================================================
+   SLIDE 2 — INTRODUCCIÓN
+   ============================================================ */
+.intro {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: stretch;
+}
+.intro__photo {
+  background-image: url('../img/suspiro-nata.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.intro__text {
+  padding: 120px 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.intro__head {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.intro__head::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.intro__body { display: flex; flex-direction: column; gap: 28px; max-width: 28ch; }
+.intro__quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 28px;
+  color: var(--gold);
+  margin-top: 32px;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   SLIDE 3 — MARRÓN GLACÉ HERO
+   ============================================================ */
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  background: var(--ink);
+  color: var(--cream);
+}
+.hero__media {
+  background-image: url('../img/suspiro-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, transparent 70%, rgba(26,23,20,.45) 100%);
+}
+.hero__panel {
+  padding: 120px 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  position: relative;
+}
+.hero__panel .eyebrow { color: var(--gold-soft); margin-bottom: 0; }
+.hero__title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 132px;
+  line-height: .92;
+  letter-spacing: -0.015em;
+  color: var(--cream);
+}
+.hero__title em { font-style: italic; color: var(--gold); display: block; }
+.hero__lede {
+  font-family: var(--sans);
+  font-size: 21px;
+  line-height: 1.6;
+  color: rgba(250, 246, 240, .82);
+  max-width: 32ch;
+  margin-top: 8px;
+}
+.hero__divider {
+  display: inline-block;
+  width: 72px;
+  height: 1px;
+  background: var(--gold);
+}
+.hero__medal {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 28px;
+  border: 1px solid var(--gold);
+  background: rgba(26,23,20, .6);
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  align-self: flex-start;
+  margin-top: 16px;
+}
+.hero__medal-mark {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 36px;
+  color: var(--gold);
+  line-height: 1;
+}
+.hero__corner {
+  position: absolute;
+  top: 80px;
+  right: 112px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--gold-soft);
+}
+
+/* ============================================================
+   SLIDE 4 — OTROS SABORES
+   ============================================================ */
+.flavors {
+  padding: 96px 112px 80px;
+  display: flex;
+  flex-direction: column;
+}
+.flavors__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 56px;
+}
+.flavors__title { max-width: 60%; }
+.flavors__title h1 { font-size: 88px; }
+.flavors__title .eyebrow { margin-bottom: 24px; }
+.flavors__note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--muted);
+  text-align: right;
+  max-width: 36ch;
+  line-height: 1.5;
+}
+.flavors__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+  flex: 1;
+}
+.flavor {
+  display: flex;
+  flex-direction: column;
+}
+.flavor__img {
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid var(--line);
+}
+.flavor__body {
+  padding-top: 20px;
+}
+.flavor__name {
+  font-family: var(--serif);
+  font-size: 26px;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.flavor__tag {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ============================================================
+   SLIDE 5 — TAMAÑOS
+   ============================================================ */
+.sizes {
+  padding: 96px 112px;
+  display: flex;
+  flex-direction: column;
+}
+.sizes__head {
+  margin-bottom: 80px;
+  max-width: 60%;
+}
+.sizes__head .eyebrow { margin-bottom: 24px; }
+.sizes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
+  flex: 1;
+  align-items: center;
+}
+.size {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+.size__visual {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: var(--cream-2);
+  border: 1px solid var(--gold);
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.size__visual--md { width: 320px; height: 320px; }
+.size__visual--lg { width: 360px; height: 360px; }
+.size__visual::before {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(176, 141, 87, .35);
+}
+.size__visual span {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 56px;
+  color: var(--gold);
+}
+.size__name {
+  font-family: var(--serif);
+  font-size: 40px;
+  color: var(--ink);
+  font-weight: 400;
+}
+.size__rac {
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.size__rac strong {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--ink);
+  letter-spacing: 0;
+  text-transform: none;
+  display: block;
+  margin-top: 4px;
+}
+
+/* ============================================================
+   SLIDE 6 — CIERRE
+   ============================================================ */
+.outro {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  position: relative;
+}
+.outro__bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('../img/obrador-historico.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: sepia(.15) contrast(1.0) brightness(.4);
+}
+.outro__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(26,23,20,.4) 0%, rgba(26,23,20,.85) 70%);
+}
+.outro__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
+  padding: 120px;
+}
+.outro__logo {
+  height: 96px;
+  filter: brightness(0) invert(1);
+}
+.outro__quote {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 56px;
+  line-height: 1.25;
+  color: var(--cream);
+  max-width: 22ch;
+  text-align: center;
+  letter-spacing: -0.005em;
+}
+.outro__rule {
+  width: 80px;
+  height: 1px;
+  background: var(--gold);
+}
+.outro__foot {
+  position: absolute;
+  left: 0; right: 0; bottom: 64px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 96px;
+  z-index: 2;
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 240, .55);
+}
+
+/* ============================================================
+   PRINT: each slide on its own page
+   ============================================================ */
+@media print {
+  html, body { background: #fff; margin: 0; }
+  .deck { padding: 0 !important; gap: 0; }
+  .slide { box-shadow: none !important; margin: 0 !important; }
+  .tools { display: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="tools">
+  Vista previa
+  <a class="tools__pdf" href="#" onclick="window.print();return false;">Generar PDF</a>
+</div>
+
+<div class="deck">
+
+  <!-- SLIDE 1 — COVER -->
+  <section class="slide cover">
+    <div class="cover__text">
+      <header class="cover__head">
+        <img class="logo logo--ink" src="../img/logo.svg" alt="Pastelería Torrehermosa" />
+      </header>
+      <div class="cover__center">
+        <span class="eyebrow">— Pastelería Torrehermosa · Desde 1962 —</span>
+        <h1 class="cover__title">Tarta<em>Suspiro.</em></h1>
+        <p class="cover__subtitle">Colección Artesanal</p>
+      </div>
+      <footer class="cover__foot">
+        Presentación para distribuidor · Edición premium
+      </footer>
+    </div>
+    <div class="cover__photo"></div>
+  </section>
+
+  <!-- SLIDE 2 — INTRO -->
+  <section class="slide intro">
+    <div class="intro__photo"></div>
+    <div class="intro__text">
+      <span class="intro__head">— Producto —</span>
+      <div class="intro__body">
+        <h2 class="h2">Una elaboración<br/><em>de toda una vida.</em></h2>
+        <p class="lede">
+          Capas de merengue crujiente, crema de elaboración propia y un acabado
+          dorado al azúcar glacé tostado. Una receta familiar reservada para
+          quienes saben lo que es el oficio.
+        </p>
+        <p class="intro__quote">
+          “Hecha cada mañana en obrador. Sin atajos.”
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 3 — MARRÓN GLACÉ -->
+  <section class="slide hero">
+    <div class="hero__media"></div>
+    <div class="hero__panel">
+      <span class="hero__corner">El premiado</span>
+      <span class="eyebrow">— La especialidad de la casa —</span>
+      <h1 class="hero__title">Marrón<em>Glacé.</em></h1>
+      <span class="hero__divider"></span>
+      <p class="hero__lede">
+        Crema de marrón glacé sobre dos capas de merengue crujiente, terminada
+        al azúcar glacé tostado. Una pieza que ha definido nuestra casa
+        durante más de seis décadas.
+      </p>
+      <span class="hero__medal">
+        <span class="hero__medal-mark">★</span>
+        Medalla de Oro · Mejor tarta de Madrid
+      </span>
+    </div>
+  </section>
+
+  <!-- SLIDE 4 — OTROS SABORES -->
+  <section class="slide slide--cream2 flavors">
+    <header class="flavors__head">
+      <div class="flavors__title">
+        <span class="eyebrow">— La gama —</span>
+        <h1 class="h1">Otros sabores<br/><em>de la colección.</em></h1>
+      </div>
+      <p class="flavors__note">
+        Misma receta, seis interpretaciones.<br/>Disponibles bajo pedido.
+      </p>
+    </header>
+    <div class="flavors__grid">
+      <article class="flavor">
+        <div class="flavor__img" style="background-image:url('../img/suspiro-dulce-de-leche.jpg')"></div>
+        <div class="flavor__body">
+          <div class="flavor__name">Dulce de Leche</div>
+          <span class="flavor__tag">Sabor intenso</span>
+        </div>
+      </article>
+      <article class="flavor">
+        <div class="flavor__img" style="background-image:url('../img/suspiro-cafe.jpg')"></div>
+        <div class="flavor__body">
+          <div class="flavor__name">Café</div>
+          <span class="flavor__tag">Tueste natural</span>
+        </div>
+      </article>
+      <article class="flavor">
+        <div class="flavor__img" style="background-image:url('../img/suspiro-frambuesa.jpg')"></div>
+        <div class="flavor__body">
+          <div class="flavor__name">Frambuesa</div>
+          <span class="flavor__tag">Frutal</span>
+        </div>
+      </article>
+      <article class="flavor">
+        <div class="flavor__img" style="background-image:url('../img/suspiro-limon.jpg')"></div>
+        <div class="flavor__body">
+          <div class="flavor__name">Limón</div>
+          <span class="flavor__tag">Cítrico y fresco</span>
+        </div>
+      </article>
+      <article class="flavor">
+        <div class="flavor__img" style="background-image:url('../img/suspiro-trufa.jpg')"></div>
+        <div class="flavor__body">
+          <div class="flavor__name">Trufa</div>
+          <span class="flavor__tag">Cacao puro</span>
+        </div>
+      </article>
+      <article class="flavor">
+        <div class="flavor__img" style="background-image:url('../img/suspiro-nata.jpg')"></div>
+        <div class="flavor__body">
+          <div class="flavor__name">Nata</div>
+          <span class="flavor__tag">Clásico</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SLIDE 5 — TAMAÑOS -->
+  <section class="slide sizes">
+    <header class="sizes__head">
+      <span class="eyebrow">— Formatos —</span>
+      <h1 class="h1">Tres tamaños.<br/><em>Una sola receta.</em></h1>
+    </header>
+    <div class="sizes__grid">
+      <article class="size">
+        <div class="size__visual"><span>S</span></div>
+        <div class="size__name">Pequeña</div>
+        <div class="size__rac"><strong>5 — 6 raciones</strong></div>
+      </article>
+      <article class="size">
+        <div class="size__visual size__visual--md"><span>M</span></div>
+        <div class="size__name">Mediana</div>
+        <div class="size__rac"><strong>8 raciones</strong></div>
+      </article>
+      <article class="size">
+        <div class="size__visual size__visual--lg"><span>L</span></div>
+        <div class="size__name">Grande</div>
+        <div class="size__rac"><strong>10 — 12 raciones</strong></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SLIDE 6 — CIERRE -->
+  <section class="slide slide--ink outro">
+    <div class="outro__bg"></div>
+    <div class="outro__veil"></div>
+    <div class="outro__inner">
+      <img class="outro__logo" src="../img/logo.svg" alt="Pastelería Torrehermosa" />
+      <div class="outro__rule"></div>
+      <p class="outro__quote">
+        “El oficio no es una receta.<br/>Es una herencia.”
+      </p>
+    </div>
+    <footer class="outro__foot">
+      <span>Pastelería Torrehermosa · Desde 1962</span>
+      <span>Madrid</span>
+    </footer>
+  </section>
+
+</div>
+
+</body>
+</html>
