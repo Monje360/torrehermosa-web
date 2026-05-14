@@ -47,7 +47,7 @@ Súbela a cualquiera de estos (todos gratis):
 | Colores             | `styles.css` → bloque `:root`            |
 | Tipografía          | `index.html` (link Google Fonts) + CSS   |
 | Teléfono / WhatsApp | Busca `915535799` en `index.html`        |
-| Email               | Busca `info@pasteleriastorrehermosa.com` |
+| Email               | Busca `info@pasteleriatorrehermosa.com` |
 | Horarios            | Sección `.visit__info` en `index.html`   |
 
 ## Siguiente paso

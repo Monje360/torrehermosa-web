@@ -53,12 +53,12 @@ Los PNGs se descargan con nombre semántico: `historia-01.png`, `historia-02.png
   - WhatsApp: +34 636 216 585
   - Tienda: +34 915 535 799
   - Dirección: Valle de Esteríbar, 2 · CC El Castillo · Villafranca del Castillo, Madrid
-  - Handle: @pasteleriastorrehermosa
-  - Web: pasteleriastorrehermosa.com
+  - Handle: @pasteleriatorrehermosa
+  - Web: pasteleriatorrehermosa.com
 
 ## Personalización
 
-- **Cambiar handle de Instagram**: busca `@pasteleriastorrehermosa` en los HTML
+- **Cambiar handle de Instagram**: busca `@pasteleriatorrehermosa` en los HTML
 - **Cambiar copy de una slide**: edita el HTML directamente, los textos están
   en las etiquetas `<h1>`, `<h2>`, `<p>`, `<span class="eyebrow">`, etc.
 - **Sustituir foto**: cambia el `background-image:url(...)` por otra ruta del folder `../img/`

@@ -33,6 +33,12 @@ for html in "$SOCIAL_DIR"/*.html; do
     out_file="$carousel_out/${name}-${nn}.png"
     url="file://${html}?slide=${n}"
 
+    # Skip if already generated (allows safe re-runs)
+    if [ -f "$out_file" ]; then
+      total_slides=$((total_slides + 1))
+      continue
+    fi
+
     "$CHROME" \
       --headless=new \
       --disable-gpu \
@@ -40,15 +46,17 @@ for html in "$SOCIAL_DIR"/*.html; do
       --hide-scrollbars \
       --force-device-scale-factor=1 \
       --window-size=1080,1350 \
-      --virtual-time-budget=3000 \
+      --virtual-time-budget=2500 \
       --screenshot="$out_file" \
-      "$url" >/dev/null 2>&1
+      "$url" >/dev/null 2>&1 || true
 
     if [ -f "$out_file" ]; then
       total_slides=$((total_slides + 1))
     else
       echo "    ✗ falló slide $n"
     fi
+    # small breather so Chrome can finalise and the OS doesn't OOM-kill
+    sleep 0.4
   done
 
   total_carousels=$((total_carousels + 1))
