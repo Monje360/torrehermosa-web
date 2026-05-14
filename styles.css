@@ -1137,6 +1137,9 @@ p { color: var(--ink-soft); }
   color: rgba(250, 246, 240, .75);
 }
 .footer__contact p { color: rgba(250, 246, 240, .65); font-size: 14px; line-height: 1.7; margin-bottom: 18px; }
+.footer__email { margin-bottom: 22px !important; }
+.footer__email a { color: var(--gold-soft); border-bottom: 1px solid rgba(212, 185, 142, .35); padding-bottom: 1px; transition: color .25s var(--ease), border-color .25s var(--ease); }
+.footer__email a:hover { color: var(--cream); border-color: var(--cream); }
 .footer__actions {
   display: flex;
   flex-wrap: wrap;
