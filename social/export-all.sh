@@ -22,6 +22,35 @@ for html in "$SOCIAL_DIR"/*.html; do
   name=$(basename "$html" .html)
   [ "$name" = "index" ] && continue
 
+  # Stories are 1080x1920 single-slide and live in stories/ subfolder.
+  # Carousels are 1080x1350 multi-slide and live in their own folder.
+  if [[ "$name" == story-* ]]; then
+    HEIGHT=1920
+    out_dir="$OUT_DIR/stories"
+    mkdir -p "$out_dir"
+    out_file="$out_dir/${name}.png"
+    url="file://${html}?slide=1"
+
+    echo "→ $name (story 1080×1920)"
+
+    if [ ! -f "$out_file" ]; then
+      "$CHROME" \
+        --headless=new \
+        --disable-gpu \
+        --no-sandbox \
+        --hide-scrollbars \
+        --force-device-scale-factor=1 \
+        --window-size=1080,1920 \
+        --virtual-time-budget=2500 \
+        --screenshot="$out_file" \
+        "$url" >/dev/null 2>&1 || true
+      sleep 0.4
+    fi
+    [ -f "$out_file" ] && total_slides=$((total_slides + 1)) || echo "    ✗ falló $name"
+    total_carousels=$((total_carousels + 1))
+    continue
+  fi
+
   slide_count=$(grep -c '<section class="slide' "$html")
   echo "→ $name ($slide_count slides)"
 

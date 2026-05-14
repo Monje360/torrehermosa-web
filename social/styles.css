@@ -123,6 +123,81 @@ html, body {
 .slide--blush { background: var(--blush); }
 .slide--cream2 { background: var(--cream-2); }
 
+/* STORY variant — 1080×1920 (9:16 Instagram Stories) */
+.slide--story {
+  width: 1080px;
+  height: 1920px;
+}
+.slide--story .slide__header { padding: 96px 80px 0; }
+.slide--story .slide__logo { height: 72px; }
+.slide--story .slide__body { padding: 80px 80px 0; }
+.slide--story .slide__footer {
+  padding: 0 80px 240px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 14px;
+}
+.story__url {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 56px;
+  color: var(--gold);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.slide--dark .story__url,
+.slide--photo .story__url { color: var(--gold-soft); }
+.story__handle {
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 12px;
+}
+.slide--dark .story__handle,
+.slide--photo .story__handle { color: rgba(250, 246, 240, .65); }
+
+.story-list {
+  list-style: none;
+  display: grid;
+  gap: 24px;
+  margin-top: 56px;
+}
+.story-list li {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 56px;
+  line-height: 1.1;
+  color: var(--ink);
+  padding-left: 32px;
+  position: relative;
+}
+.story-list li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-style: normal;
+  font-size: 64px;
+  line-height: 1;
+}
+.slide--dark .story-list li { color: var(--cream); }
+
+.story-arrow {
+  display: inline-block;
+  margin-top: 32px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 28px;
+  color: var(--gold-soft);
+}
+.story-arrow::after {
+  content: " ↑";
+  font-style: normal;
+}
+
 /* =========================================================
    SLIDE LAYOUT BLOCKS
    ========================================================= */
