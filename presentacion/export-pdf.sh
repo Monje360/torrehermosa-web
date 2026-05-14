@@ -7,7 +7,7 @@ set -e
 CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 INPUT="$DIR/index.html"
-OUTPUT="$HOME/Desktop/Torrehermosa-TartaSuspiro-Distribucion.pdf"
+OUTPUT="$DIR/Torrehermosa-TartaSuspiro-Distribucion.pdf"
 
 if [ ! -x "$CHROME" ]; then
   echo "Google Chrome no encontrado en $CHROME"
