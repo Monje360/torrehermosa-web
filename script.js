@@ -5,14 +5,34 @@
 (() => {
   'use strict';
 
-  // -- Always land at the top on initial load / refresh (no anchor jump) --
+  // -- Scroll handling on initial load --
+  // /distribuidores is a Vercel rewrite to the home page; auto-scroll
+  // to the corresponding section instead of landing at the top.
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
-  if (window.location.hash) {
-    history.replaceState(null, '', window.location.pathname + window.location.search);
+  const path = window.location.pathname.replace(/\/$/, '');
+  const sectionByPath = {
+    '/distribuidores': 'distribuidores',
+  };
+  const targetId = sectionByPath[path];
+
+  if (targetId) {
+    // Wait until the section is in the DOM, then scroll to it (no animation
+    // on initial load to avoid the jarring "top → bottom" jump).
+    document.addEventListener('DOMContentLoaded', () => {
+      const target = document.getElementById(targetId);
+      if (target) {
+        // Defer to next frame so the layout is settled.
+        requestAnimationFrame(() => target.scrollIntoView({ behavior: 'instant', block: 'start' }));
+      }
+    });
+  } else {
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+    window.scrollTo(0, 0);
   }
-  window.scrollTo(0, 0);
 
   const nav = document.getElementById('nav');
   const hero = document.querySelector('.hero');
