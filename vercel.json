@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/distribuidores", "destination": "/index.html" }
+    { "source": "/distribuidores", "destination": "/" }
   ],
   "headers": [
     {
