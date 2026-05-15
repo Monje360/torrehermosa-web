@@ -167,6 +167,9 @@ p { color: var(--ink-soft); }
   align-items: center;
   justify-content: space-between;
   padding: 26px var(--gutter);
+  padding-top: max(26px, env(safe-area-inset-top));
+  padding-left: max(var(--gutter), env(safe-area-inset-left));
+  padding-right: max(var(--gutter), env(safe-area-inset-right));
   background: transparent;
   transition: background .4s var(--ease), padding .4s var(--ease), box-shadow .4s var(--ease);
 }
@@ -1296,9 +1299,19 @@ p { color: var(--ink-soft); }
     justify-content: center;
     gap: 28px;
     color: var(--ink);
-    z-index: -1;
+    z-index: 40;
+    padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
   }
-  .nav.is-open .nav__menu a { font-size: 22px; font-family: var(--serif); text-transform: none; letter-spacing: 0; }
+  .nav.is-open .nav__menu a {
+    font-size: 24px;
+    font-family: var(--serif);
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--ink);
+  }
+  /* Keep logo + burger above the open menu */
+  .nav__brand { position: relative; z-index: 55; }
+  .nav__burger { position: relative; z-index: 55; }
 
   .heritage__grid,
   .obrador,
