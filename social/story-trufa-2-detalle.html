@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Torrehermosa · Story · Trufa Detalle</title>
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .trufa-split {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+  .trufa-split > div {
+    background-size: cover;
+    background-position: center;
+  }
+  .trufa-veil {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg,
+        rgba(26,23,20,.45) 0%,
+        rgba(26,23,20,.15) 22%,
+        rgba(26,23,20,.05) 38%,
+        rgba(26,23,20,.7) 60%,
+        rgba(26,23,20,.95) 100%);
+  }
+  .trufa-panel {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 240px;
+    padding: 0 80px;
+    z-index: 4;
+  }
+  .trufa-panel .eyebrow { color: var(--gold-soft); }
+  .trufa-panel h1 { color: var(--cream); }
+  .trufa-panel em { color: var(--gold); }
+  .trufa-panel .lede {
+    color: rgba(250, 246, 240, .92);
+    font-size: 28px;
+    max-width: 28ch;
+    margin-top: 28px;
+  }
+  .trufa-quote {
+    margin-top: 36px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 28px;
+    color: var(--gold-soft);
+    max-width: 24ch;
+  }
+</style>
+</head>
+<body>
+
+<div class="tools">
+  <a href="index.html" class="tools__link">← Volver al índice</a>
+  <span class="tools__title">Trufa 2 · Detalle</span>
+  <div class="tools__actions">
+    <button id="download-all" class="tools__btn">↓ Descargar</button>
+  </div>
+</div>
+
+<div class="carousel">
+
+  <section class="slide slide--story slide--dark">
+    <div class="trufa-split">
+      <div style="background-image:url('../img/suspiro-trufa.jpg'); background-position: center 30%;"></div>
+      <div style="background-image:url('../img/suspiro-hero.jpg')"></div>
+    </div>
+    <div class="trufa-veil"></div>
+
+    <header class="slide__header" style="position:relative; z-index:4;">
+      <img class="slide__logo" src="../img/logo.svg" alt="Torrehermosa" style="filter:brightness(0) invert(1);" />
+    </header>
+
+    <div class="trufa-panel">
+      <span class="eyebrow">— La receta —</span>
+      <h1 class="display"><em>Chocolate</em><br/>fundido.</h1>
+      <p class="lede">
+        Capas de merengue crujiente con crema de trufa
+        y chocolate fundido por encima.
+      </p>
+      <p class="trufa-quote">
+        “El bocado que pide<br/>una segunda cucharada.”
+      </p>
+    </div>
+
+    <footer class="slide__footer"></footer>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

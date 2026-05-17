@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Torrehermosa · Story · Trufa CTA</title>
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .cta-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/suspiro-trufa.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    filter: brightness(.55) saturate(.9);
+  }
+  .cta-veil {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg,
+        rgba(26,23,20,.65) 0%,
+        rgba(26,23,20,.35) 25%,
+        rgba(26,23,20,.55) 50%,
+        rgba(26,23,20,.95) 78%,
+        rgba(26,23,20,1) 100%);
+  }
+  .cta-content {
+    position: absolute;
+    left: 0; right: 0;
+    top: 280px;
+    padding: 0 80px;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .cta-content .eyebrow { color: var(--gold-soft); margin-bottom: 0; }
+  .cta-content h1 { color: var(--cream); }
+  .cta-content em { color: var(--gold); }
+  .cta-content .lede {
+    color: rgba(250, 246, 240, .9);
+    font-size: 30px;
+    max-width: 24ch;
+    margin-top: 16px;
+  }
+
+  /* Designated zone for IG link sticker — user drops their WA sticker here */
+  .cta-sticker-zone {
+    position: absolute;
+    left: 50%;
+    bottom: 380px;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    width: calc(100% - 160px);
+    max-width: 600px;
+  }
+  .cta-sticker-frame {
+    width: 100%;
+    min-height: 130px;
+    border: 1.5px dashed rgba(212, 185, 142, .55);
+    border-radius: 24px;
+    display: grid;
+    place-items: center;
+    padding: 28px;
+    text-align: center;
+  }
+  .cta-sticker-label {
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(212, 185, 142, .75);
+    line-height: 1.6;
+  }
+  .cta-sticker-label small {
+    display: block;
+    margin-top: 6px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: rgba(212, 185, 142, .55);
+  }
+  .cta-arrow {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--gold-soft);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .cta-arrow::after { content: "↓"; font-style: normal; font-size: 28px; }
+</style>
+</head>
+<body>
+
+<div class="tools">
+  <a href="index.html" class="tools__link">← Volver al índice</a>
+  <span class="tools__title">Trufa 3 · CTA</span>
+  <div class="tools__actions">
+    <button id="download-all" class="tools__btn">↓ Descargar</button>
+  </div>
+</div>
+
+<div class="carousel">
+
+  <section class="slide slide--story slide--dark">
+    <div class="cta-bg"></div>
+    <div class="cta-veil"></div>
+
+    <header class="slide__header" style="position:relative; z-index:4;">
+      <img class="slide__logo" src="../img/logo.svg" alt="Torrehermosa" style="filter:brightness(0) invert(1);" />
+      <span class="medal" style="font-size:11px; padding:8px 16px; letter-spacing:0.18em;">★ Especialidad</span>
+    </header>
+
+    <div class="cta-content">
+      <span class="eyebrow">— Tu pedido —</span>
+      <h1 class="display"><em>Reservar</em><br/>ahora.</h1>
+      <p class="lede">
+        Tu Suspiro de Trufa,<br/>en tu casa o en la tienda.
+      </p>
+    </div>
+
+    <div class="cta-sticker-zone">
+      <span class="cta-arrow">Toca el botón de WhatsApp</span>
+      <!-- Zona limpia reservada para el sticker de link de Instagram -->
+      <div style="height: 200px;"></div>
+    </div>
+
+    <footer class="slide__footer"></footer>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
