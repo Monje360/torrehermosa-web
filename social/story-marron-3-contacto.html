@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Torrehermosa · Story · Marrón Contacto</title>
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .contact-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/tarta-cover.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    filter: brightness(.42) saturate(.85);
+  }
+  .contact-veil {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at center, rgba(26,23,20,.45) 0%, rgba(26,23,20,.85) 70%, rgba(26,23,20,.95) 100%);
+  }
+  .contact-inner {
+    position: absolute;
+    left: 0; right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 80px;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+  }
+  .contact-inner .eyebrow { color: var(--gold-soft); margin-bottom: 0; }
+  .contact-inner h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 132px;
+    line-height: .92;
+    color: var(--cream);
+    letter-spacing: -0.015em;
+  }
+  .contact-inner em { font-style: italic; color: var(--gold); display: block; }
+  .contact-rule {
+    width: 72px;
+    height: 1px;
+    background: var(--gold);
+    margin: 24px 0 8px;
+  }
+  .contact-list {
+    list-style: none;
+    display: grid;
+    gap: 32px;
+    margin-top: 16px;
+  }
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .contact-label {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+  }
+  .contact-value {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 46px;
+    line-height: 1;
+    color: var(--cream);
+    letter-spacing: -0.005em;
+  }
+</style>
+</head>
+<body>
+
+<div class="tools">
+  <a href="index.html" class="tools__link">← Volver al índice</a>
+  <span class="tools__title">Marrón 3 · Contacto</span>
+  <div class="tools__actions">
+    <button id="download-all" class="tools__btn">↓ Descargar</button>
+  </div>
+</div>
+
+<div class="carousel">
+
+  <section class="slide slide--story slide--dark">
+    <div class="contact-bg"></div>
+    <div class="contact-veil"></div>
+
+    <header class="slide__header" style="position:relative; z-index:4;">
+      <img class="slide__logo" src="../img/logo.svg" alt="Torrehermosa" style="filter:brightness(0) invert(1);" />
+      <span class="medal" style="font-size:11px; padding:8px 16px; letter-spacing:0.18em;">★ Marrón Glacé</span>
+    </header>
+
+    <div class="contact-inner">
+      <span class="eyebrow">— Encárgala —</span>
+      <h1>Pídela<br/><em>hoy.</em></h1>
+      <span class="contact-rule"></span>
+      <ul class="contact-list">
+        <li class="contact-item">
+          <span class="contact-label">WhatsApp · Pedidos</span>
+          <span class="contact-value">+34 636 216 585</span>
+        </li>
+        <li class="contact-item">
+          <span class="contact-label">Tienda</span>
+          <span class="contact-value">+34 915 535 799</span>
+        </li>
+        <li class="contact-item">
+          <span class="contact-label">Web</span>
+          <span class="contact-value">pasteleriatorrehermosa.com</span>
+        </li>
+      </ul>
+    </div>
+
+    <footer class="slide__footer"></footer>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

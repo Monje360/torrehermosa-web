@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Torrehermosa · Story · Marrón Pedido</title>
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .pedido-split {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-rows: 1fr 1.1fr;
+  }
+  .pedido-split > div {
+    background-size: cover;
+    background-position: center;
+  }
+  .pedido-veil {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg,
+        rgba(26,23,20,.45) 0%,
+        rgba(26,23,20,.05) 20%,
+        rgba(26,23,20,.0) 35%,
+        rgba(26,23,20,.7) 55%,
+        rgba(26,23,20,.95) 100%);
+  }
+  .pedido-panel {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 220px;
+    padding: 0 80px;
+    z-index: 4;
+  }
+  .pedido-panel .eyebrow { color: var(--gold-soft); margin-bottom: 28px; }
+  .pedido-panel .lede {
+    font-family: var(--serif);
+    font-size: 56px;
+    line-height: 1.18;
+    color: var(--cream);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-top: 0;
+  }
+  .pedido-panel em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .pedido-panel .rule {
+    display: block;
+    width: 56px;
+    height: 1px;
+    background: var(--gold);
+    margin: 36px 0 28px;
+  }
+  .pedido-panel .cta {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 32px;
+    color: var(--cream);
+    line-height: 1.4;
+    max-width: 22ch;
+  }
+</style>
+</head>
+<body>
+
+<div class="tools">
+  <a href="index.html" class="tools__link">← Volver al índice</a>
+  <span class="tools__title">Marrón 2 · Pedido</span>
+  <div class="tools__actions">
+    <button id="download-all" class="tools__btn">↓ Descargar</button>
+  </div>
+</div>
+
+<div class="carousel">
+
+  <section class="slide slide--story slide--dark">
+    <div class="pedido-split">
+      <div style="background-image:url('../img/tarta-intro.jpg')"></div>
+      <div style="background-image:url('../img/envio-domicilio.jpg'); background-position: center 30%;"></div>
+    </div>
+    <div class="pedido-veil"></div>
+
+    <header class="slide__header" style="position:relative; z-index:4;">
+      <img class="slide__logo" src="../img/logo.svg" alt="Torrehermosa" style="filter:brightness(0) invert(1);" />
+    </header>
+
+    <div class="pedido-panel">
+      <span class="eyebrow">— Para tu fin de semana —</span>
+      <p class="lede">
+        Terminar tu comida o cena<br/>
+        de fin de semana bien…<br/>
+        <em>no es negociable.</em>
+      </p>
+      <span class="rule"></span>
+      <p class="cta">
+        Haz hoy tu pedido<br/>
+        y recíbelo mañana a domicilio.
+      </p>
+    </div>
+
+    <footer class="slide__footer"></footer>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
