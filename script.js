@@ -202,7 +202,7 @@
   const heroFrame = document.querySelector('[data-hero-frame]');
   const heroImg = heroFrame ? heroFrame.querySelector('img') : null;
   const story = document.querySelector('[data-story]');
-  const storyImg = story ? story.querySelector('.story__img') : null;
+  const storyImgs = story ? Array.from(story.querySelectorAll('.story__img')) : [];
   const storySteps = story ? Array.from(story.querySelectorAll('.story__step')) : [];
   const storyBar = story ? story.querySelector('.story__progress') : null;
   const parallax = document.querySelector('[data-parallax]');
@@ -246,7 +246,8 @@
         s.classList.toggle('is-active', i === active);
         s.classList.toggle('is-done', i < active);
       });
-      if (storyImg) story.style.setProperty('--s', (0.82 + clamp(p * 2.2) * 0.18).toFixed(4));
+      storyImgs.forEach((img, i) => img.classList.toggle('is-active', i === active));
+      story.style.setProperty('--s', (0.86 + clamp(p * 3) * 0.14).toFixed(4));
       story.style.setProperty('--glow', (0.35 + p * 0.65).toFixed(3));
       if (storyBar) storyBar.style.setProperty('--p', p.toFixed(4));
     }
